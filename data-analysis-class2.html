@@ -1,186 +1,274 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مقاييس القياس - Class 2 Measurement Scales</title>
+  <title>Measurement Scales Mind Map</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f8fafc;
-      color: #1e293b;
-      padding: 30px 15px;
-      direction: rtl;
-    }
-
-    .container {
-      max-width: 750px;
-      margin: 0 auto;
-    }
-
-    h1 {
-      text-align: center;
-      color: #d97706;
-      margin-bottom: 25px;
-    }
-
-    .card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-right: 5px solid #f59e0b;
-      border-radius: 8px;
-      padding: 14px 20px;
-      margin-bottom: 12px;
+      background-color: #fcf8f2;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      min-height: 100vh;
+      padding: 40px 20px;
     }
 
-    .title-en {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #334155;
-      direction: ltr;
-      text-align: right;
+    /* Mind Map Container */
+    .tree {
+      display: flex;
+      align-items: center;
     }
 
-    .btn-copy {
+    .tree ul {
+      padding-left: 45px;
+      position: relative;
+      list-style: none;
+    }
+
+    /* Connecting Lines */
+    .tree ul::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
       background-color: #f59e0b;
-      color: #ffffff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      cursor: pointer;
+    }
+
+    .tree li {
+      position: relative;
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .tree li::before {
+      content: '';
+      position: absolute;
+      left: -45px;
+      top: 50%;
+      width: 45px;
+      height: 2px;
+      background-color: #f59e0b;
+    }
+
+    .tree ul > li:first-child::before {
+      top: 50%;
+    }
+
+    /* Node Box Style */
+    .node {
+      background-color: #fde68a;
+      border-radius: 18px;
+      padding: 10px 18px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.06);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 160px;
+      justify-content: space-between;
+      border: 1px solid #fcd34d;
+    }
+
+    /* Root Node */
+    .root-node {
+      background-color: #fde68a;
+      border-radius: 22px;
+      padding: 20px 24px;
+      min-width: 220px;
+    }
+
+    .node-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title-main {
+      font-weight: 700;
+      color: #1e293b;
+      font-size: 0.95rem;
+    }
+
+    .title-sub {
       font-size: 0.85rem;
-      font-weight: bold;
+      color: #475569;
+      margin-top: 2px;
+    }
+
+    /* Copy Button */
+    .btn-copy {
+      background-color: #ffffff;
+      color: #d97706;
+      border: 1px solid #f59e0b;
+      border-radius: 12px;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
       transition: all 0.2s ease;
       white-space: nowrap;
     }
 
     .btn-copy:hover {
-      background-color: #d97706;
+      background-color: #f59e0b;
+      color: #ffffff;
     }
 
     .btn-copy.copied {
-      background-color: #16a34a;
+      background-color: #16a34a !important;
+      color: #ffffff !important;
+      border-color: #16a34a !important;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>قائمة العناوين (مقاييس القياس)</h1>
-
-    <!-- Title 1 -->
-    <div class="card">
-      <span class="title-en" id="title-1">Class 2 Measurement Scales</span>
-      <button class="btn-copy" onclick="copyText('title-1', this)">نسخ العنوان</button>
+  <div class="tree">
+    <!-- Root Node -->
+    <div class="node root-node">
+      <div class="node-text">
+        <span class="title-main" id="t-root">Class 2 Measurement Scales</span>
+        <span class="title-sub">مقاييس القياس</span>
+        <span class="title-sub">DTR</span>
+      </div>
+      <button class="btn-copy" onclick="copyText('t-root', this)">Copy</button>
     </div>
 
-    <!-- Title 2 -->
-    <div class="card">
-      <span class="title-en" id="title-2">What Are Measurement Scales?</span>
-      <button class="btn-copy" onclick="copyText('title-2', this)">نسخ العنوان</button>
-    </div>
+    <!-- Branch 1 -->
+    <ul>
+      <li>
+        <div class="node">
+          <div class="node-text">
+            <span class="title-main" id="t-b1">What Are Measurement Scales?</span>
+          </div>
+          <button class="btn-copy" onclick="copyText('t-b1', this)">Copy</button>
+        </div>
+        <!-- Sub Branches -->
+        <ul>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b1-1">Key Properties</span>
+              <button class="btn-copy" onclick="copyText('t-b1-1', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b1-2">Comparison</span>
+              <button class="btn-copy" onclick="copyText('t-b1-2', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b1-3">Examples</span>
+              <button class="btn-copy" onclick="copyText('t-b1-3', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b1-4">Importance of measurement scales</span>
+              <button class="btn-copy" onclick="copyText('t-b1-4', this)">Copy</button>
+            </div>
+          </li>
+        </ul>
+      </li>
 
-    <!-- Title 3 -->
-    <div class="card">
-      <span class="title-en" id="title-3">Key Properties</span>
-      <button class="btn-copy" onclick="copyText('title-3', this)">نسخ العنوان</button>
-    </div>
+      <!-- Branch 2 -->
+      <li>
+        <div class="node">
+          <div class="node-text">
+            <span class="title-main" id="t-b2">Types of Measurement Scales</span>
+            <span class="title-sub">NOIR</span>
+          </div>
+          <button class="btn-copy" onclick="copyText('t-b2', this)">Copy</button>
+        </div>
+        <!-- Sub Branches -->
+        <ul>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b2-1">Nominal</span>
+              <button class="btn-copy" onclick="copyText('t-b2-1', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b2-2">Ordinal</span>
+              <button class="btn-copy" onclick="copyText('t-b2-2', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b2-3">Interval</span>
+              <button class="btn-copy" onclick="copyText('t-b2-3', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b2-4">Ratio</span>
+              <button class="btn-copy" onclick="copyText('t-b2-4', this)">Copy</button>
+            </div>
+          </li>
+        </ul>
+      </li>
 
-    <!-- Title 4 -->
-    <div class="card">
-      <span class="title-en" id="title-4">Comparison</span>
-      <button class="btn-copy" onclick="copyText('title-4', this)">نسخ العنوان</button>
-    </div>
+      <!-- Branch 3 -->
+      <li>
+        <div class="node">
+          <div class="node-text">
+            <span class="title-main" id="t-b3">Relationship Between Scales and Statistical Techniques</span>
+          </div>
+          <button class="btn-copy" onclick="copyText('t-b3', this)">Copy</button>
+        </div>
+      </li>
 
-    <!-- Title 5 -->
-    <div class="card">
-      <span class="title-en" id="title-5">Examples</span>
-      <button class="btn-copy" onclick="copyText('title-5', this)">نسخ العنوان</button>
-    </div>
-
-    <!-- Title 6 -->
-    <div class="card">
-      <span class="title-en" id="title-6">Importance of measurement scales</span>
-      <button class="btn-copy" onclick="copyText('title-6', this)">نسخ العنوان</button>
-    </div>
-
-    <!-- Title 7 -->
-    <div class="card">
-      <span class="title-en" id="title-7">Types of Measurement Scales (NOIR)</span>
-      <button class="btn-copy" onclick="copyText('title-7', this)">نسخ العنوان</button>
-    </div>
-
-    <!-- Title 8 -->
-    <div class="card">
-      <span class="title-en" id="title-8">Nominal</span>
-      <button class="btn-copy" onclick="copyText('title-8', this)">نسخ العنوان</button>
-    </div>
-
-    <!-- Title 9 -->
-    <div class="card">
-      <span class="title-en" id="title-9">Ordinal</span>
-      <button class="btn-copy" onclick="copyText('title-9', this)">نسخ العنوان</button>
-    </div>
-
-    <!-- Title 10 -->
-    <div class="card">
-      <span class="title-en" id="title-10">Interval</span>
-      <button class="btn-copy" onclick="copyText('title-10', this)">نسخ العنوان</button>
-    </div>
-
-    <!-- Title 11 -->
-    <div class="card">
-      <span class="title-en" id="title-11">Ratio</span>
-      <button class="btn-copy" onclick="copyText('title-11', this)">نسخ العنوان</button>
-    </div>
-
-    <!-- Title 12 -->
-    <div class="card">
-      <span class="title-en" id="title-12">Relationship Between Scales and Statistical Techniques</span>
-      <button class="btn-copy" onclick="copyText('title-12', this)">نسخ العنوان</button>
-    </div>
-
-    <!-- Title 13 -->
-    <div class="card">
-      <span class="title-en" id="title-13">Intro to SPSS</span>
-      <button class="btn-copy" onclick="copyText('title-13', this)">نسخ العنوان</button>
-    </div>
-
-    <!-- Title 14 -->
-    <div class="card">
-      <span class="title-en" id="title-14">Key Features of IBM SPSS</span>
-      <button class="btn-copy" onclick="copyText('title-14', this)">نسخ العنوان</button>
-    </div>
-
-    <!-- Title 15 -->
-    <div class="card">
-      <span class="title-en" id="title-15">Applications of IBM SPSS</span>
-      <button class="btn-copy" onclick="copyText('title-15', this)">نسخ العنوان</button>
-    </div>
+      <!-- Branch 4 -->
+      <li>
+        <div class="node">
+          <div class="node-text">
+            <span class="title-main" id="t-b4">Intro to SPSS</span>
+          </div>
+          <button class="btn-copy" onclick="copyText('t-b4', this)">Copy</button>
+        </div>
+        <!-- Sub Branches -->
+        <ul>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b4-1">Key Features of IBM SPSS</span>
+              <button class="btn-copy" onclick="copyText('t-b4-1', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b4-2">Applications of IBM SPSS</span>
+              <button class="btn-copy" onclick="copyText('t-b4-2', this)">Copy</button>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <script>
-    function copyText(elementId, buttonElement) {
-      const textToCopy = document.getElementById(elementId).innerText;
-
-      navigator.clipboard.writeText(textToCopy).then(() => {
-        const originalText = buttonElement.innerText;
-        buttonElement.innerText = "تم النسخ! ✓";
-        buttonElement.classList.add("copied");
-
+    function copyText(elementId, btn) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied! ✓';
+        btn.classList.add('copied');
         setTimeout(() => {
-          buttonElement.innerText = originalText;
-          buttonElement.classList.remove("copied");
+          btn.innerText = originalText;
+          btn.classList.remove('copied');
         }, 1500);
-      }).catch(err => {
-        console.error("حدث خطأ أثناء النسخ: ", err);
       });
     }
   </script>
-
 </body>
 </html>
