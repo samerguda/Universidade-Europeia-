@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cluster Analysis Mind Map</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fafafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      direction: ltr;
+    }
+
+    /* Mind Map Container */
+    .tree {
+      display: flex;
+      align-items: center;
+    }
+
+    .tree ul {
+      padding-left: 45px;
+      position: relative;
+      list-style: none;
+    }
+
+    /* Connecting Lines */
+    .tree ul::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
+      background-color: #e11d48;
+    }
+
+    .tree li {
+      position: relative;
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .tree li::before {
+      content: '';
+      position: absolute;
+      left: -45px;
+      top: 50%;
+      width: 45px;
+      height: 2px;
+      background-color: #e11d48;
+    }
+
+    /* Node Box Style */
+    .node {
+      background-color: #fecdd3;
+      border-radius: 18px;
+      padding: 8px 16px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 170px;
+      justify-content: space-between;
+      border: 1px solid #fda4af;
+    }
+
+    /* Root Node */
+    .root-node {
+      background-color: #fecdd3;
+      border-radius: 22px;
+      padding: 18px 22px;
+      min-width: 210px;
+      border: 2px solid #fda4af;
+    }
+
+    .node-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title-main {
+      font-weight: 700;
+      color: #881337;
+      font-size: 0.9rem;
+      line-height: 1.3;
+    }
+
+    .title-sub {
+      font-size: 0.8rem;
+      color: #9f1239;
+      margin-top: 2px;
+    }
+
+    /* Copy Button */
+    .btn-copy {
+      background-color: #ffffff;
+      color: #e11d48;
+      border: 1px solid #e11d48;
+      border-radius: 12px;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-copy:hover {
+      background-color: #e11d48;
+      color: #ffffff;
+    }
+
+    .btn-copy.copied {
+      background-color: #16a34a !important;
+      color: #ffffff !important;
+      border-color: #16a34a !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tree">
+    <!-- Root Node -->
+    <div class="node root-node">
+      <div class="node-text">
+        <span class="title-main" id="t-root">Class 9 Cluster analysis DwwTT HKR</span>
+      </div>
+      <button class="btn-copy" onclick="copyText('t-root', this)">Copy</button>
+    </div>
+
+    <!-- Main Branches -->
+    <ul>
+      <!-- Branch 1 -->
+      <li>
+        <div class="node">
+          <span class="title-main" id="t-b1">What is Cluster Analysis?</span>
+          <button class="btn-copy" onclick="copyText('t-b1', this)">Copy</button>
+        </div>
+      </li>
+
+      <!-- Branch 2 -->
+      <li>
+        <div class="node">
+          <span class="title-main" id="t-b2">Why use Cluster Analysis?</span>
+          <button class="btn-copy" onclick="copyText('t-b2', this)">Copy</button>
+        </div>
+      </li>
+
+      <!-- Branch 3 -->
+      <li>
+        <div class="node">
+          <span class="title-main" id="t-b3">When to Use Cluster Analysis:</span>
+          <button class="btn-copy" onclick="copyText('t-b3', this)">Copy</button>
+        </div>
+        <ul>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b3-1">Exemplos</span>
+              <button class="btn-copy" onclick="copyText('t-b3-1', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b3-2">Types of Cluster Analysis</span>
+              <button class="btn-copy" onclick="copyText('t-b3-2', this)">Copy</button>
+            </div>
+            <ul>
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-b3-2-1">1. Hierarchical Clustering</span>
+                  <button class="btn-copy" onclick="copyText('t-b3-2-1', this)">Copy</button>
+                </div>
+              </li>
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-b3-2-2">2. K-means Clustering</span>
+                  <button class="btn-copy" onclick="copyText('t-b3-2-2', this)">Copy</button>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Branch 4 -->
+      <li>
+        <div class="node">
+          <span class="title-main" id="t-b4">Theory Behind Clustering Methods</span>
+          <button class="btn-copy" onclick="copyText('t-b4', this)">Copy</button>
+        </div>
+        <ul>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b4-1">Similarity Measures:</span>
+              <button class="btn-copy" onclick="copyText('t-b4-1', this)">Copy</button>
+            </div>
+            <ul>
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-b4-1-1">Euclidean Distance: Measures the straight-line distance between points.</span>
+                  <button class="btn-copy" onclick="copyText('t-b4-1-1', this)">Copy</button>
+                </div>
+              </li>
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-b4-1-2">Manhattan Distance: Calculates the sum of absolute differences between points.</span>
+                  <button class="btn-copy" onclick="copyText('t-b4-1-2', this)">Copy</button>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b4-2">Clustering Criteria:</span>
+              <button class="btn-copy" onclick="copyText('t-b4-2', this)">Copy</button>
+            </div>
+            <ul>
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-b4-2-1">Intra-cluster Variation: Maximize similarity within clusters to ensure that data points are closely related.</span>
+                  <button class="btn-copy" onclick="copyText('t-b4-2-1', this)">Copy</button>
+                </div>
+              </li>
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-b4-2-2">Inter-cluster Variation: Maximize differences between clusters to ensure that groups are sufficiently distinct.</span>
+                  <button class="btn-copy" onclick="copyText('t-b4-2-2', this)">Copy</button>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Branch 5 -->
+      <li>
+        <div class="node">
+          <span class="title-main" id="t-b5">Hierarchical Clustering</span>
+          <button class="btn-copy" onclick="copyText('t-b5', this)">Copy</button>
+        </div>
+      </li>
+
+      <!-- Branch 6 -->
+      <li>
+        <div class="node">
+          <span class="title-main" id="t-b6">K-means Clustering</span>
+          <button class="btn-copy" onclick="copyText('t-b6', this)">Copy</button>
+        </div>
+      </li>
+
+      <!-- Branch 7 -->
+      <li>
+        <div class="node">
+          <span class="title-main" id="t-b7">How to Report a Cluster Analysis?</span>
+          <button class="btn-copy" onclick="copyText('t-b7', this)">Copy</button>
+        </div>
+        <ul>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b7-1">1. Introduction (as e.g.)</span>
+              <button class="btn-copy" onclick="copyText('t-b7-1', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b7-2">2. Methodology (e.g.)</span>
+              <button class="btn-copy" onclick="copyText('t-b7-2', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b7-3">3. Results (as e.g.)</span>
+              <button class="btn-copy" onclick="copyText('t-b7-3', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b7-4">4. Interpretation (as e.g.)</span>
+              <button class="btn-copy" onclick="copyText('t-b7-4', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b7-5">5. Conclusion & Recommendations (as e.g.)</span>
+              <button class="btn-copy" onclick="copyText('t-b7-5', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b7-6">6. Limitations (as e.g.)</span>
+              <button class="btn-copy" onclick="copyText('t-b7-6', this)">Copy</button>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    function copyText(elementId, btn) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied! ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove('copied');
+        }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
