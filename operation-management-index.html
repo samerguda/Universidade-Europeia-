@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operation Management Index</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      direction: ltr;
+    }
+
+    /* Mind Map Container */
+    .tree {
+      display: flex;
+      align-items: center;
+    }
+
+    .tree ul {
+      padding-left: 45px;
+      position: relative;
+      list-style: none;
+    }
+
+    /* Connecting Lines */
+    .tree ul::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
+      background-color: #84cc16;
+    }
+
+    .tree li {
+      position: relative;
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .tree li::before {
+      content: '';
+      position: absolute;
+      left: -45px;
+      top: 50%;
+      width: 45px;
+      height: 2px;
+      background-color: #84cc16;
+    }
+
+    /* Node Box Style */
+    .node {
+      background-color: #bbf7d0;
+      border-radius: 16px;
+      padding: 8px 14px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 180px;
+      justify-content: space-between;
+      border: 1px solid #86efac;
+    }
+
+    /* Root Node */
+    .root-card {
+      background-color: #bbf7d0;
+      border-radius: 20px;
+      padding: 14px 18px;
+      border: 2px solid #86efac;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 180px;
+    }
+
+    .item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .title-main {
+      font-weight: 700;
+      color: #14532d;
+      font-size: 0.9rem;
+      line-height: 1.3;
+    }
+
+    .title-sub {
+      font-size: 0.85rem;
+      color: #166534;
+      font-weight: 600;
+    }
+
+    /* Copy Button */
+    .btn-copy {
+      background-color: #ffffff;
+      color: #15803d;
+      border: 1px solid #22c55e;
+      border-radius: 10px;
+      padding: 3px 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-copy:hover {
+      background-color: #22c55e;
+      color: #ffffff;
+    }
+
+    .btn-copy.copied {
+      background-color: #16a34a !important;
+      color: #ffffff !important;
+      border-color: #16a34a !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tree">
+    <!-- Root Node -->
+    <div class="root-card">
+      <div class="item-row">
+        <span class="title-main" id="t-root-1">All</span>
+        <button class="btn-copy" onclick="copyText('t-root-1', this)">Copy</button>
+      </div>
+      <div class="item-row">
+        <span class="title-sub" id="t-root-2">IDP</span>
+        <button class="btn-copy" onclick="copyText('t-root-2', this)">Copy</button>
+      </div>
+      <div class="item-row">
+        <span class="title-sub" id="t-root-3">MS PSL</span>
+        <button class="btn-copy" onclick="copyText('t-root-3', this)">Copy</button>
+      </div>
+      <div class="item-row">
+        <span class="title-sub" id="t-root-4">CM SjQ</span>
+        <button class="btn-copy" onclick="copyText('t-root-4', this)">Copy</button>
+      </div>
+    </div>
+
+    <!-- Main Branches -->
+    <ul>
+      <!-- Branch 1: Introduction -->
+      <li>
+        <div class="node">
+          <span class="title-main" id="t-b1">Introduction</span>
+          <button class="btn-copy" onclick="copyText('t-b1', this)">Copy</button>
+        </div>
+        <ul>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b1-1">S1: Introduction to operations management</span>
+              <button class="btn-copy" onclick="copyText('t-b1-1', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b1-2">S2: Operations strategy</span>
+              <button class="btn-copy" onclick="copyText('t-b1-2', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-sub" id="t-b1-3">Ms</span>
+              <button class="btn-copy" onclick="copyText('t-b1-3', this)">Copy</button>
+            </div>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Branch 2: System design -->
+      <li>
+        <div class="node">
+          <span class="title-main" id="t-b2">System design</span>
+          <button class="btn-copy" onclick="copyText('t-b2', this)">Copy</button>
+        </div>
+        <ul>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b2-1">S3: Process analysis</span>
+              <button class="btn-copy" onclick="copyText('t-b2-1', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b2-2">S4: Supply network design</span>
+              <button class="btn-copy" onclick="copyText('t-b2-2', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b2-3">S5: Layout and flow</span>
+              <button class="btn-copy" onclick="copyText('t-b2-3', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-sub" id="t-b2-4">PSL</span>
+              <button class="btn-copy" onclick="copyText('t-b2-4', this)">Copy</button>
+            </div>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Branch 3: Planning and Control -->
+      <li>
+        <div class="node">
+          <span class="title-main" id="t-b3">Planning and Control</span>
+          <button class="btn-copy" onclick="copyText('t-b3', this)">Copy</button>
+        </div>
+        <ul>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b3-1">S6: Capacity management</span>
+              <button class="btn-copy" onclick="copyText('t-b3-1', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b3-2">S7: Materials management</span>
+              <button class="btn-copy" onclick="copyText('t-b3-2', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b3-3">S8: Supply chain management</span>
+              <button class="btn-copy" onclick="copyText('t-b3-3', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b3-4">S9: JIT and Lean systems</span>
+              <button class="btn-copy" onclick="copyText('t-b3-4', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-b3-5">S10: Quality management</span>
+              <button class="btn-copy" onclick="copyText('t-b3-5', this)">Copy</button>
+            </div>
+          </li>
+          <li>
+            <div class="node">
+              <span class="title-sub" id="t-b3-6">CM SjQ</span>
+              <button class="btn-copy" onclick="copyText('t-b3-6', this)">Copy</button>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    function copyText(elementId, btn) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied! ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove('copied');
+        }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
