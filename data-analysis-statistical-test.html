@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statistical Test Mind Map</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      direction: ltr;
+    }
+
+    /* Mind Map Container */
+    .tree {
+      display: flex;
+      align-items: center;
+    }
+
+    .tree ul {
+      padding-left: 45px;
+      position: relative;
+      list-style: none;
+    }
+
+    /* Connecting Lines */
+    .tree ul::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
+      background-color: #38bdf8;
+    }
+
+    .tree li {
+      position: relative;
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .tree li::before {
+      content: '';
+      position: absolute;
+      left: -45px;
+      top: 50%;
+      width: 45px;
+      height: 2px;
+      background-color: #38bdf8;
+    }
+
+    /* Node Box Style */
+    .node {
+      background-color: #bae6fd;
+      border-radius: 16px;
+      padding: 8px 14px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 170px;
+      justify-content: space-between;
+      border: 1px solid #7dd3fc;
+    }
+
+    .title-main {
+      font-weight: 700;
+      color: #0369a1;
+      font-size: 0.88rem;
+      line-height: 1.3;
+    }
+
+    .title-sub {
+      font-size: 0.82rem;
+      color: #0284c7;
+      font-weight: 600;
+    }
+
+    /* Copy Button */
+    .btn-copy {
+      background-color: #ffffff;
+      color: #0284c7;
+      border: 1px solid #38bdf8;
+      border-radius: 10px;
+      padding: 3px 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-copy:hover {
+      background-color: #0284c7;
+      color: #ffffff;
+    }
+
+    .btn-copy.copied {
+      background-color: #16a34a !important;
+      color: #ffffff !important;
+      border-color: #16a34a !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tree">
+    <!-- Root Node -->
+    <div class="node">
+      <span class="title-main" id="t-root">Statistical test</span>
+      <button class="btn-copy" onclick="copyText('t-root', this)">Copy</button>
+    </div>
+
+    <!-- Main Branches -->
+    <ul>
+      <!-- Branch 1: Parametric UPA -->
+      <li>
+        <div class="node">
+          <span class="title-main" id="t-param">Parametric</span>
+          <button class="btn-copy" onclick="copyText('t-param', this)">Copy</button>
+        </div>
+        <ul>
+          <li>
+            <div class="node">
+              <span class="title-sub" id="t-upa">UPA</span>
+              <button class="btn-copy" onclick="copyText('t-upa', this)">Copy</button>
+            </div>
+            <ul>
+              <!-- Unpaired t-test -->
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-unpaired-t">Unpaired t-test</span>
+                  <button class="btn-copy" onclick="copyText('t-unpaired-t', this)">Copy</button>
+                </div>
+                <ul>
+                  <li>
+                    <div class="node">
+                      <span class="title-sub" id="t-unpaired-t-desc">( two unpaired groups)</span>
+                      <button class="btn-copy" onclick="copyText('t-unpaired-t-desc', this)">Copy</button>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Paired t-test -->
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-paired-t">Paired t-test</span>
+                  <button class="btn-copy" onclick="copyText('t-paired-t', this)">Copy</button>
+                </div>
+                <ul>
+                  <li>
+                    <div class="node">
+                      <span class="title-sub" id="t-paired-t-desc">( two paired groups)</span>
+                      <button class="btn-copy" onclick="copyText('t-paired-t-desc', this)">Copy</button>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Analysis of variance -->
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-anova">Analysis of variance</span>
+                  <button class="btn-copy" onclick="copyText('t-anova', this)">Copy</button>
+                </div>
+                <ul>
+                  <li>
+                    <div class="node">
+                      <span class="title-sub" id="t-anova-desc">( three or more groups)</span>
+                      <button class="btn-copy" onclick="copyText('t-anova-desc', this)">Copy</button>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Branch 2: Nonparametric MWK -->
+      <li>
+        <div class="node">
+          <span class="title-main" id="t-nonparam">Nonparametric</span>
+          <button class="btn-copy" onclick="copyText('t-nonparam', this)">Copy</button>
+        </div>
+        <ul>
+          <li>
+            <div class="node">
+              <span class="title-sub" id="t-mwk">MWK</span>
+              <button class="btn-copy" onclick="copyText('t-mwk', this)">Copy</button>
+            </div>
+            <ul>
+              <!-- Mann-whitney -->
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-mw">Mann-whitney</span>
+                  <button class="btn-copy" onclick="copyText('t-mw', this)">Copy</button>
+                </div>
+                <ul>
+                  <li>
+                    <div class="node">
+                      <span class="title-sub" id="t-mw-desc">( two unpaired groups)</span>
+                      <button class="btn-copy" onclick="copyText('t-mw-desc', this)">Copy</button>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Wilcoxon -->
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-wilcoxon">Wilcoxon</span>
+                  <button class="btn-copy" onclick="copyText('t-wilcoxon', this)">Copy</button>
+                </div>
+                <ul>
+                  <li>
+                    <div class="node">
+                      <span class="title-sub" id="t-wilcoxon-desc">( two paired groups)</span>
+                      <button class="btn-copy" onclick="copyText('t-wilcoxon-desc', this)">Copy</button>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Kruskal-wallis -->
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-kw">Kruskal-wallis</span>
+                  <button class="btn-copy" onclick="copyText('t-kw', this)">Copy</button>
+                </div>
+                <ul>
+                  <li>
+                    <div class="node">
+                      <span class="title-sub" id="t-kw-desc">( three or more groups)</span>
+                      <button class="btn-copy" onclick="copyText('t-kw-desc', this)">Copy</button>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Branch 3: Categorical data CMC -->
+      <li>
+        <div class="node">
+          <span class="title-main" id="t-cat">Categorical data</span>
+          <button class="btn-copy" onclick="copyText('t-cat', this)">Copy</button>
+        </div>
+        <ul>
+          <li>
+            <div class="node">
+              <span class="title-sub" id="t-cmc">CMC</span>
+              <button class="btn-copy" onclick="copyText('t-cmc', this)">Copy</button>
+            </div>
+            <ul>
+              <!-- Chi-square 1 -->
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-chi1">Chi-square</span>
+                  <button class="btn-copy" onclick="copyText('t-chi1', this)">Copy</button>
+                </div>
+                <ul>
+                  <li>
+                    <div class="node">
+                      <span class="title-sub" id="t-chi1-desc">( two unpaired groups)</span>
+                      <button class="btn-copy" onclick="copyText('t-chi1-desc', this)">Copy</button>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- McNemar -->
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-mcnemar">McNemar</span>
+                  <button class="btn-copy" onclick="copyText('t-mcnemar', this)">Copy</button>
+                </div>
+                <ul>
+                  <li>
+                    <div class="node">
+                      <span class="title-sub" id="t-mcnemar-desc">( two paired groups)</span>
+                      <button class="btn-copy" onclick="copyText('t-mcnemar-desc', this)">Copy</button>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Chi-square 2 -->
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-chi2">Chi-square</span>
+                  <button class="btn-copy" onclick="copyText('t-chi2', this)">Copy</button>
+                </div>
+                <ul>
+                  <li>
+                    <div class="node">
+                      <span class="title-sub" id="t-chi2-desc">( three or more groups)</span>
+                      <button class="btn-copy" onclick="copyText('t-chi2-desc', this)">Copy</button>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    function copyText(elementId, btn) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied! ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove('copied');
+        }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
