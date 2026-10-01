@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Non-Parametric Tests Mind Map</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fdfbfd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      direction: ltr;
+    }
+
+    /* Mind Map Container */
+    .tree {
+      display: flex;
+      align-items: center;
+    }
+
+    .tree ul {
+      padding-left: 45px;
+      position: relative;
+      list-style: none;
+    }
+
+    /* Connecting Lines */
+    .tree ul::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
+      background-color: #a855f7;
+    }
+
+    .tree li {
+      position: relative;
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .tree li::before {
+      content: '';
+      position: absolute;
+      left: -45px;
+      top: 50%;
+      width: 45px;
+      height: 2px;
+      background-color: #a855f7;
+    }
+
+    /* Node Box Style */
+    .node {
+      background-color: #f3e8ff;
+      border-radius: 16px;
+      padding: 8px 14px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 170px;
+      justify-content: space-between;
+      border: 1px solid #d8b4fe;
+    }
+
+    .title-main {
+      font-weight: 700;
+      color: #581c87;
+      font-size: 0.88rem;
+      line-height: 1.3;
+    }
+
+    .title-sub {
+      font-size: 0.82rem;
+      color: #6b21a8;
+      font-weight: 600;
+    }
+
+    /* Copy Button */
+    .btn-copy {
+      background-color: #ffffff;
+      color: #9333ea;
+      border: 1px solid #a855f7;
+      border-radius: 10px;
+      padding: 3px 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-copy:hover {
+      background-color: #a855f7;
+      color: #ffffff;
+    }
+
+    .btn-copy.copied {
+      background-color: #16a34a !important;
+      color: #ffffff !important;
+      border-color: #16a34a !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tree">
+    <!-- Root Node -->
+    <div class="node">
+      <span class="title-main" id="t-root">Class 7 Hypothesis test Non parametric test</span>
+      <button class="btn-copy" onclick="copyText('t-root', this)">Copy</button>
+    </div>
+
+    <!-- Main Branches -->
+    <ul>
+      <li>
+        <div class="node">
+          <span class="title-sub" id="t-root-ar">اختبار الفرضيات بالطرق النون باراميتريك</span>
+          <button class="btn-copy" onclick="copyText('t-root-ar', this)">Copy</button>
+        </div>
+        <ul>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-npt">Non-Parametric Tests</span>
+              <button class="btn-copy" onclick="copyText('t-npt', this)">Copy</button>
+            </div>
+            <ul>
+              <!-- Basic Nodes -->
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-def">Definition</span>
+                  <button class="btn-copy" onclick="copyText('t-def', this)">Copy</button>
+                </div>
+              </li>
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-wtu">When to Use?</span>
+                  <button class="btn-copy" onclick="copyText('t-wtu', this)">Copy</button>
+                </div>
+              </li>
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-adv">Advantages:</span>
+                  <button class="btn-copy" onclick="copyText('t-adv', this)">Copy</button>
+                </div>
+              </li>
+
+              <!-- Common Non-Parametric Tests -->
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-cnpt">Common Non-Parametric Tests</span>
+                  <button class="btn-copy" onclick="copyText('t-cnpt', this)">Copy</button>
+                </div>
+                <ul>
+                  <li>
+                    <div class="node">
+                      <span class="title-sub" id="t-cnpt-code">WMK WC</span>
+                      <button class="btn-copy" onclick="copyText('t-cnpt-code', this)">Copy</button>
+                    </div>
+                  </li>
+
+                  <!-- Test 1 -->
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-test1">Wilcoxon Signed-Rank Test for One Sample</span>
+                      <button class="btn-copy" onclick="copyText('t-test1', this)">Copy</button>
+                    </div>
+                    <ul>
+                      <li>
+                        <div class="node">
+                          <span class="title-main" id="t-ex">Example:</span>
+                          <button class="btn-copy" onclick="copyText('t-ex', this)">Copy</button>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="node">
+                          <span class="title-main" id="t-spss">SPSS</span>
+                          <button class="btn-copy" onclick="copyText('t-spss', this)">Copy</button>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="node">
+                          <span class="title-main" id="t-interp">Interpretation</span>
+                          <button class="btn-copy" onclick="copyText('t-interp', this)">Copy</button>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <!-- Test 2 -->
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-test2">Mann-Whitney U Test (2 independent groups):</span>
+                      <button class="btn-copy" onclick="copyText('t-test2', this)">Copy</button>
+                    </div>
+                  </li>
+
+                  <!-- Test 3 -->
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-test3">Kruskal-Wallis Test (3+ independent groups):</span>
+                      <button class="btn-copy" onclick="copyText('t-test3', this)">Copy</button>
+                    </div>
+                  </li>
+
+                  <!-- Test 4 -->
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-test4">Wilcoxon Signed-Rank Test (2 paired groups):</span>
+                      <button class="btn-copy" onclick="copyText('t-test4', this)">Copy</button>
+                    </div>
+                  </li>
+
+                  <!-- Test 5 -->
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-test5">Chi-Square Test of Independence:</span>
+                      <button class="btn-copy" onclick="copyText('t-test5', this)">Copy</button>
+                    </div>
+                  </li>
+
+                  <!-- Test 6 & Description -->
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-test6">Evaluates the association between two categorical variables.</span>
+                      <button class="btn-copy" onclick="copyText('t-test6', this)">Copy</button>
+                    </div>
+                    <ul>
+                      <li>
+                        <div class="node">
+                          <span class="title-main" id="t-test6-sub">Chi-Square Goodness-of-Fit Test:</span>
+                          <button class="btn-copy" onclick="copyText('t-test6-sub', this)">Copy</button>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    function copyText(elementId, btn) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied! ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove('copied');
+        }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
