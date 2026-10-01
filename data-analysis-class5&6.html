@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parametric Hypothesis Testing Mind Map</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      direction: ltr;
+    }
+
+    /* Mind Map Container */
+    .tree {
+      display: flex;
+      align-items: center;
+    }
+
+    .tree ul {
+      padding-left: 45px;
+      position: relative;
+      list-style: none;
+    }
+
+    /* Connecting Lines */
+    .tree ul::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
+      background-color: #38bdf8;
+    }
+
+    .tree li {
+      position: relative;
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .tree li::before {
+      content: '';
+      position: absolute;
+      left: -45px;
+      top: 50%;
+      width: 45px;
+      height: 2px;
+      background-color: #38bdf8;
+    }
+
+    /* Node Box Style */
+    .node {
+      background-color: #bae6fd;
+      border-radius: 16px;
+      padding: 8px 14px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 170px;
+      justify-content: space-between;
+      border: 1px solid #7dd3fc;
+    }
+
+    .title-main {
+      font-weight: 700;
+      color: #0369a1;
+      font-size: 0.88rem;
+      line-height: 1.3;
+    }
+
+    .title-sub {
+      font-size: 0.82rem;
+      color: #0284c7;
+      font-weight: 600;
+    }
+
+    /* Copy Button */
+    .btn-copy {
+      background-color: #ffffff;
+      color: #0284c7;
+      border: 1px solid #38bdf8;
+      border-radius: 10px;
+      padding: 3px 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-copy:hover {
+      background-color: #0284c7;
+      color: #ffffff;
+    }
+
+    .btn-copy.copied {
+      background-color: #16a34a !important;
+      color: #ffffff !important;
+      border-color: #16a34a !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tree">
+    <!-- Root Node -->
+    <div class="node">
+      <span class="title-main" id="t-root">Class 5&6 Parametric hypothesis testing</span>
+      <button class="btn-copy" onclick="copyText('t-root', this)">Copy</button>
+    </div>
+
+    <!-- Main Branches -->
+    <ul>
+      <li>
+        <div class="node">
+          <span class="title-sub" id="t-root-ar">اختبار الفرضيات بالطرق البارامترية</span>
+          <button class="btn-copy" onclick="copyText('t-root-ar', this)">Copy</button>
+        </div>
+        <ul>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-ht">Hypothesis testing</span>
+              <button class="btn-copy" onclick="copyText('t-ht', this)">Copy</button>
+            </div>
+            <ul>
+              <!-- Branch 1: Basic Definitions -->
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-def">Definition</span>
+                  <button class="btn-copy" onclick="copyText('t-def', this)">Copy</button>
+                </div>
+              </li>
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-null-alt">Null and Alternative Hypotheses</span>
+                  <button class="btn-copy" onclick="copyText('t-null-alt', this)">Copy</button>
+                </div>
+              </li>
+
+              <!-- Branch 2: Testing Details & Requirements -->
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-ts">Test Statistic</span>
+                  <button class="btn-copy" onclick="copyText('t-ts', this)">Copy</button>
+                </div>
+              </li>
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-rr">Rejection Region & non rejection region</span>
+                  <button class="btn-copy" onclick="copyText('t-rr', this)">Copy</button>
+                </div>
+              </li>
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-dm">Decision making</span>
+                  <button class="btn-copy" onclick="copyText('t-dm', this)">Copy</button>
+                </div>
+              </li>
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-spss">IBM SPSS:</span>
+                  <button class="btn-copy" onclick="copyText('t-spss', this)">Copy</button>
+                </div>
+              </li>
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-cmp">Comparison of two mean population</span>
+                  <button class="btn-copy" onclick="copyText('t-cmp', this)">Copy</button>
+                </div>
+              </li>
+
+              <!-- Requirements & Assumptions Branch -->
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-req">key requirements and assumptions</span>
+                  <button class="btn-copy" onclick="copyText('t-req', this)">Copy</button>
+                </div>
+                <ul>
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-req1">1. Independent Samples:</span>
+                      <button class="btn-copy" onclick="copyText('t-req1', this)">Copy</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-req2">2.Normality:</span>
+                      <button class="btn-copy" onclick="copyText('t-req2', this)">Copy</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-req3">3.Equal Variances (Optional but Important):</span>
+                      <button class="btn-copy" onclick="copyText('t-req3', this)">Copy</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-req4">4. ScaleofMeasurement:</span>
+                      <button class="btn-copy" onclick="copyText('t-req4', this)">Copy</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-req5">5.Random Sampling:</span>
+                      <button class="btn-copy" onclick="copyText('t-req5', this)">Copy</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-req6">6.Sufficient Sample Size (For Non-Normal Distributions):</span>
+                      <button class="btn-copy" onclick="copyText('t-req6', this)">Copy</button>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Example: Body Weight & Main Tests -->
+              <li>
+                <div class="node">
+                  <span class="title-main" id="t-ex-bw">Example: "Body Weight"</span>
+                  <button class="btn-copy" onclick="copyText('t-ex-bw', this)">Copy</button>
+                </div>
+                <ul>
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-ht-code">Hypothesis Test PCOP TTAA</span>
+                      <button class="btn-copy" onclick="copyText('t-ht-code', this)">Copy</button>
+                    </div>
+                    <ul>
+                      <!-- Sub Test 1: Paired two sample t-test -->
+                      <li>
+                        <div class="node">
+                          <span class="title-main" id="t-paired-t">Paired two sample t-test</span>
+                          <button class="btn-copy" onclick="copyText('t-paired-t', this)">Copy</button>
+                        </div>
+                        <ul>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-pt-obj">Objective</span>
+                              <button class="btn-copy" onclick="copyText('t-pt-obj', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-pt-wtu">When to Use:</span>
+                              <button class="btn-copy" onclick="copyText('t-pt-wtu', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-pt-h0">Null Hypothesis (H0):</span>
+                              <button class="btn-copy" onclick="copyText('t-pt-h0', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-pt-h1">Alternative Hypothesis (H1):</span>
+                              <button class="btn-copy" onclick="copyText('t-pt-h1', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-pt-ts">Test Statistic:</span>
+                              <button class="btn-copy" onclick="copyText('t-pt-ts', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-pt-dr">Decision Rule based on p-value:</span>
+                              <button class="btn-copy" onclick="copyText('t-pt-dr', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-pt-as">Asumptions</span>
+                              <button class="btn-copy" onclick="copyText('t-pt-as', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-pt-spss">Conducting the test in SPSS...</span>
+                              <button class="btn-copy" onclick="copyText('t-pt-spss', this)">Copy</button>
+                            </div>
+                            <ul>
+                              <li>
+                                <div class="node">
+                                  <span class="title-sub" id="t-pt-spss-path">Navigate to "Analyse" > "Compare Means" > "Paired-Samples T Test"</span>
+                                  <button class="btn-copy" onclick="copyText('t-pt-spss-path', this)">Copy</button>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Sub Test 2: Cohen's d -->
+                      <li>
+                        <div class="node">
+                          <span class="title-main" id="t-cohen">Paired two sample t-test: Cohen's d</span>
+                          <button class="btn-copy" onclick="copyText('t-cohen', this)">Copy</button>
+                        </div>
+                        <ul>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-cd-def">Definition</span>
+                              <button class="btn-copy" onclick="copyText('t-cd-def', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-cd-adv">Advantages</span>
+                              <button class="btn-copy" onclick="copyText('t-cd-adv', this)">Copy</button>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Sub Test 3: ANOVA -->
+                      <li>
+                        <div class="node">
+                          <span class="title-main" id="t-anova">One-Way Analysis of Variance (ANOVA)</span>
+                          <button class="btn-copy" onclick="copyText('t-anova', this)">Copy</button>
+                        </div>
+                        <ul>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-an-kc">Key Concepts:</span>
+                              <button class="btn-copy" onclick="copyText('t-an-kc', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-an-fstat">Interpretation of the F-Statistic:</span>
+                              <button class="btn-copy" onclick="copyText('t-an-fstat', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-an-fval">Critical Value of F:</span>
+                              <button class="btn-copy" onclick="copyText('t-an-fval', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-an-ex">Example</span>
+                              <button class="btn-copy" onclick="copyText('t-an-ex', this)">Copy</button>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Sub Test 4: Post-Hoc Tests -->
+                      <li>
+                        <div class="node">
+                          <span class="title-main" id="t-posthoc">Post-Hoc Tests – Analyzing the group differences in ANOVA test</span>
+                          <button class="btn-copy" onclick="copyText('t-posthoc', this)">Copy</button>
+                        </div>
+                        <ul>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-ph-ta">Post-Hoc Tests/Analysis:</span>
+                              <button class="btn-copy" onclick="copyText('t-ph-ta', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-ph-wtu">When to Use Post-Hoc Tests:</span>
+                              <button class="btn-copy" onclick="copyText('t-ph-wtu', this)">Copy</button>
+                            </div>
+                            <ul>
+                              <li>
+                                <div class="node">
+                                  <span class="title-main" id="t-tukey">Tukey's Honestly Significant Difference (HSD) Test:</span>
+                                  <button class="btn-copy" onclick="copyText('t-tukey', this)">Copy</button>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="node">
+                                  <span class="title-main" id="t-bonf">Bonferroni Test & Scheffe's Test:</span>
+                                  <button class="btn-copy" onclick="copyText('t-bonf', this)">Copy</button>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="node">
+                                  <span class="title-main" id="t-games">Games-Howell Test:</span>
+                                  <button class="btn-copy" onclick="copyText('t-games', this)">Copy</button>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    function copyText(elementId, btn) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied! ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove('copied');
+        }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
