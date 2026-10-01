@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Factor Analysis and Reliability Mind Map</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fafafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      direction: ltr;
+    }
+
+    /* Mind Map Container */
+    .tree {
+      display: flex;
+      align-items: center;
+    }
+
+    .tree ul {
+      padding-left: 45px;
+      position: relative;
+      list-style: none;
+    }
+
+    /* Connecting Lines */
+    .tree ul::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
+      background-color: #ec4899;
+    }
+
+    .tree li {
+      position: relative;
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .tree li::before {
+      content: '';
+      position: absolute;
+      left: -45px;
+      top: 50%;
+      width: 45px;
+      height: 2px;
+      background-color: #ec4899;
+    }
+
+    /* Node Box Style */
+    .node {
+      background-color: #fbcfe8;
+      border-radius: 16px;
+      padding: 8px 14px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 170px;
+      justify-content: space-between;
+      border: 1px solid #f9a8d4;
+    }
+
+    .title-main {
+      font-weight: 700;
+      color: #831843;
+      font-size: 0.88rem;
+      line-height: 1.3;
+    }
+
+    .title-sub {
+      font-size: 0.82rem;
+      color: #9d174d;
+      font-weight: 600;
+    }
+
+    /* Copy Button */
+    .btn-copy {
+      background-color: #ffffff;
+      color: #db2777;
+      border: 1px solid #ec4899;
+      border-radius: 10px;
+      padding: 3px 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-copy:hover {
+      background-color: #ec4899;
+      color: #ffffff;
+    }
+
+    .btn-copy.copied {
+      background-color: #16a34a !important;
+      color: #ffffff !important;
+      border-color: #16a34a !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tree">
+    <!-- Root Node Container -->
+    <div class="node">
+      <span class="title-main" id="t-root">Class 8 Factor analysis and reliability</span>
+      <button class="btn-copy" onclick="copyText('t-root', this)">Copy</button>
+    </div>
+
+    <!-- Level 1 Branches -->
+    <ul>
+      <li>
+        <div class="node">
+          <span class="title-sub" id="t-root-code">FAR</span>
+          <button class="btn-copy" onclick="copyText('t-root-code', this)">Copy</button>
+        </div>
+        <ul>
+          <li>
+            <div class="node">
+              <span class="title-main" id="t-efa">Exploratory Factor Analysis</span>
+              <button class="btn-copy" onclick="copyText('t-efa', this)">Copy</button>
+            </div>
+            <ul>
+              <li>
+                <div class="node">
+                  <span class="title-sub" id="t-efa-code">DRPS AR</span>
+                  <button class="btn-copy" onclick="copyText('t-efa-code', this)">Copy</button>
+                </div>
+                <ul>
+                  <!-- Branch 1: Definition & Basic items -->
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-def">Definition</span>
+                      <button class="btn-copy" onclick="copyText('t-def', this)">Copy</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-req">Requirements</span>
+                      <button class="btn-copy" onclick="copyText('t-req', this)">Copy</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-proc">Procedures</span>
+                      <button class="btn-copy" onclick="copyText('t-proc', this)">Copy</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-spss">SPSS</span>
+                      <button class="btn-copy" onclick="copyText('t-spss', this)">Copy</button>
+                    </div>
+                  </li>
+
+                  <!-- Branch 2: Analysis of Correlation Matrix -->
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-acm-main">Analysis of the Correlation Matrix and Appropriateness of Exploratory Factor Analysis (EFA).</span>
+                      <button class="btn-copy" onclick="copyText('t-acm-main', this)">Copy</button>
+                    </div>
+                    <ul>
+                      <li>
+                        <div class="node">
+                          <span class="title-sub" id="t-acm-code1">Acm</span>
+                          <button class="btn-copy" onclick="copyText('t-acm-code1', this)">Copy</button>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="node">
+                          <span class="title-sub" id="t-acm-code2">EFA</span>
+                          <button class="btn-copy" onclick="copyText('t-acm-code2', this)">Copy</button>
+                        </div>
+                      </li>
+                      <!-- KMO and Bartlett -->
+                      <li>
+                        <div class="node">
+                          <span class="title-main" id="t-kmo-b">1.1 KMO and Bartlett's Test of Sphericity</span>
+                          <button class="btn-copy" onclick="copyText('t-kmo-b', this)">Copy</button>
+                        </div>
+                        <ul>
+                          <li>
+                            <div class="node">
+                              <span class="title-sub" id="t-kmo-code">Kmo</span>
+                              <button class="btn-copy" onclick="copyText('t-kmo-code', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-sub" id="t-bts-code">Bts</span>
+                              <button class="btn-copy" onclick="copyText('t-bts-code', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-kmo-item">KMO</span>
+                              <button class="btn-copy" onclick="copyText('t-kmo-item', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-bartlett-item">Bartlett</span>
+                              <button class="btn-copy" onclick="copyText('t-bartlett-item', this)">Copy</button>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Factor Extraction -->
+                      <li>
+                        <div class="node">
+                          <span class="title-main" id="t-fe">Factor Extraction</span>
+                          <button class="btn-copy" onclick="copyText('t-fe', this)">Copy</button>
+                        </div>
+                        <ul>
+                          <li>
+                            <div class="node">
+                              <span class="title-sub" id="t-sct-code">Sct</span>
+                              <button class="btn-copy" onclick="copyText('t-sct-code', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-scree">2.1 Scree Plot</span>
+                              <button class="btn-copy" onclick="copyText('t-scree', this)">Copy</button>
+                            </div>
+                            <ul>
+                              <li>
+                                <div class="node">
+                                  <span class="title-main" id="t-kaiser">• Kaiser's Method:</span>
+                                  <button class="btn-copy" onclick="copyText('t-kaiser', this)">Copy</button>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="node">
+                                  <span class="title-main" id="t-adapted">• Adapted Kaiser's Method:</span>
+                                  <button class="btn-copy" onclick="copyText('t-adapted', this)">Copy</button>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="node">
+                                  <span class="title-main" id="t-elbow">• Elbow Method:</span>
+                                  <button class="btn-copy" onclick="copyText('t-elbow', this)">Copy</button>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-comp-mat">Component Matrix After Rotation:</span>
+                              <button class="btn-copy" onclick="copyText('t-comp-mat', this)">Copy</button>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="node">
+                              <span class="title-main" id="t-rot-type">Types of Rotation</span>
+                              <button class="btn-copy" onclick="copyText('t-rot-type', this)">Copy</button>
+                            </div>
+                            <ul>
+                              <li>
+                                <div class="node">
+                                  <span class="title-main" id="t-ortho">• Orthogonal Rotation (Varimax):</span>
+                                  <button class="btn-copy" onclick="copyText('t-ortho', this)">Copy</button>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="node">
+                                  <span class="title-main" id="t-oblique">• Oblique Rotation (Direct Oblimin):</span>
+                                  <button class="btn-copy" onclick="copyText('t-oblique', this)">Copy</button>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <!-- Branch 3: Reliability Test -->
+                  <li>
+                    <div class="node">
+                      <span class="title-main" id="t-rel-test">Reliability Test</span>
+                      <button class="btn-copy" onclick="copyText('t-rel-test', this)">Copy</button>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    function copyText(elementId, btn) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied! ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove('copied');
+        }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
