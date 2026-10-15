@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+
+  <title>Operation Management | Chapter 8</title>
+
+  <style>
+    :root {
+      --bg: #f3f6fb;
+      --surface: #ffffff;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --text: #172033;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --dark: #101827;
+      --green: #059669;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #101827, #1e3a8a);
+      color: white;
+      padding: 48px 20px 55px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 13px;
+      border: 1px solid #64748b;
+      border-radius: 30px;
+      color: #dbeafe;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(27px, 5vw, 43px);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span {
+      color: #93c5fd;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      font-size: 15px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: -24px auto 0;
+      padding: 0 18px 45px;
+      position: relative;
+    }
+
+    .overview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 17px;
+      text-align: center;
+      box-shadow: 0 5px 18px #0f172a08;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 25px;
+      color: var(--primary);
+    }
+
+    .stat span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin: 28px 0 14px;
+      flex-wrap: wrap;
+    }
+
+    .section-heading h2 {
+      font-size: 20px;
+    }
+
+    .section-heading p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .topic-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .topic {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 4px 14px #0f172a05;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .topic:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px #0f172a0d;
+    }
+
+    .number {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: #eff6ff;
+      color: var(--primary);
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .topic-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .topic-content h3 {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 2px 0 7px;
+      overflow-wrap: anywhere;
+    }
+
+    .topic-content p {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    button {
+      border: none;
+      border-radius: 9px;
+      padding: 10px 13px;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+
+    button:active {
+      transform: scale(.97);
+    }
+
+    .copy-btn {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #dbeafe;
+    }
+
+    .copy-btn:hover {
+      background: #dbeafe;
+    }
+
+    .youtube-btn {
+      background: #dc2626;
+      color: white;
+    }
+
+    .youtube-btn:hover {
+      background: #b91c1c;
+    }
+
+    .case-study {
+      border-color: #bfdbfe;
+      background: linear-gradient(120deg, #ffffff, #eff6ff);
+    }
+
+    .case-study .number {
+      background: #dbeafe;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 20px 10px;
+      font-size: 12px;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #101827;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 13px;
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s;
+      z-index: 10;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 36px 18px 45px;
+      }
+
+      .overview {
+        gap: 8px;
+      }
+
+      .stat {
+        padding: 13px 6px;
+      }
+
+      .stat strong {
+        font-size: 21px;
+      }
+
+      .stat span {
+        font-size: 10px;
+      }
+
+      .topic {
+        padding: 15px;
+        gap: 11px;
+      }
+
+      .number {
+        width: 35px;
+        height: 35px;
+      }
+
+      .topic-content h3 {
+        font-size: 14px;
+      }
+
+      button {
+        padding: 10px 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="badge">STUDY GUIDE · CHAPTER 08</div>
+
+    <h1>Operation Management<br>
+      <span>Supply Chain Management</span>
+    </h1>
+
+    <p>
+      Chapter 8 study topics, key concepts and ZARA case study.
+      Select any topic to copy its title or search for it on YouTube.
+    </p>
+  </header>
+
+  <main class="container">
+
+    <section class="overview">
+      <div class="stat">
+        <strong>08</strong>
+        <span>Core Topics</span>
+      </div>
+
+      <div class="stat">
+        <strong>01</strong>
+        <span>Case Study</span>
+      </div>
+
+      <div class="stat">
+        <strong>09</strong>
+        <span>Total Study Items</span>
+      </div>
+    </section>
+
+    <div class="section-heading">
+      <h2>Chapter Topics</h2>
+      <p>Copy titles or open YouTube search</p>
+    </div>
+
+    <section class="topic-list" id="topics">
+
+      <article class="topic">
+        <div class="number">01</div>
+        <div class="topic-content">
+          <h3>Definition — What Is Supply Chain Management?</h3>
+          <p>Introduction and fundamental definitions</p>
+          <div class="actions">
+            <button class="copy-btn"
+              onclick="copyTitle(0)">📋 Copy Title</button>
+            <button class="youtube-btn"
+              onclick="searchYouTube(0)">▶ Search YouTube</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="topic">
+        <div class="number">02</div>
+        <div class="topic-content">
+          <h3>Supply Chain Planning and Control</h3>
+          <p>Planning, coordination and operational control</p>
+          <div class="actions">
+            <button class="copy-btn"
+              onclick="copyTitle(1)">📋 Copy Title</button>
+            <button class="youtube-btn"
+              onclick="searchYouTube(1)">▶ Search YouTube</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="topic">
+        <div class="number">03</div>
+        <div class="topic-content">
+          <h3>Supply Chain Management: The Flow of Information, Products and Services</h3>
+          <p>Understanding flows throughout the supply chain</p>
+          <div class="actions">
+            <button class="copy-btn"
+              onclick="copyTitle(2)">📋 Copy Title</button>
+            <button class="youtube-btn"
+              onclick="searchYouTube(2)">▶ Search YouTube</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="topic">
+        <div class="number">04</div>
+        <div class="topic-content">
+          <h3>The Purchasing Function: Connecting Operations and Suppliers</h3>
+          <p>Purchasing, sourcing and supplier relationships</p>
+          <div class="actions">
+            <button class="copy-btn"
+              onclick="copyTitle(3)">📋 Copy Title</button>
+            <button class="youtube-btn"
+              onclick="searchYouTube(3)">▶ Search YouTube</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="topic">
+        <div class="number">05</div>
+        <div class="topic-content">
+          <h3>Hau Lee’s Supply Chain Uncertainty Framework</h3>
+          <p>Matching supply chain strategies with uncertainty</p>
+          <div class="actions">
+            <button class="copy-btn"
+              onclick="copyTitle(4)">📋 Copy Title</button>
+            <button class="youtube-btn"
+              onclick="searchYouTube(4)">▶ Search YouTube</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="topic">
+        <div class="number">06</div>
+        <div class="topic-content">
+          <h3>The Bullwhip Effect</h3>
+          <p>Demand amplification across the supply chain</p>
+          <div class="actions">
+            <button class="copy-btn"
+              onclick="copyTitle(5)">📋 Copy Title</button>
+            <button class="youtube-btn"
+              onclick="searchYouTube(5)">▶ Search YouTube</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="topic">
+        <div class="number">07</div>
+        <div class="topic-content">
+          <h3>Variability of Orders in the Supply Chain</h3>
+          <p>Order fluctuations and demand variability</p>
+          <div class="actions">
+            <button class="copy-btn"
+              onclick="copyTitle(6)">📋 Copy Title</button>
+            <button class="youtube-btn"
+              onclick="searchYouTube(6)">▶ Search YouTube</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="topic">
+        <div class="number">08</div>
+        <div class="topic-content">
+          <h3>Major Causes of the Bullwhip Effect</h3>
+          <p>Forecasting, batching, promotions and supply chain decisions</p>
+          <div class="actions">
+            <button class="copy-btn"
+              onclick="copyTitle(7)">📋 Copy Title</button>
+            <button class="youtube-btn"
+              onclick="searchYouTube(7)">▶ Search YouTube</button>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <div class="section-heading">
+      <h2>Case Study</h2>
+      <p>Practical application</p>
+    </div>
+
+    <section class="topic-list">
+
+      <article class="topic case-study">
+        <div class="number">CP8</div>
+        <div class="topic-content">
+          <h3>CP8 — Case Study: Supply Chain Management at ZARA</h3>
+          <p>Explore ZARA’s supply chain, fast fashion and responsive operations.</p>
+          <div class="actions">
+            <button class="copy-btn"
+              onclick="copyTitle(8)">📋 Copy Title</button>
+            <button class="youtube-btn"
+              onclick="searchYouTube(8)">▶ Search YouTube</button>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <footer class="footer">
+      Operation Management · Chapter 8 · Personal Study Guide
+    </footer>
+
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const titles = [
+      "Operation Management Chapter 8 - Definition: What Is Supply Chain Management?",
+      "Operation Management Chapter 8 - Supply Chain Planning and Control",
+      "Operation Management Chapter 8 - Flow of Information, Products and Services",
+      "Operation Management Chapter 8 - Purchasing Function and Suppliers",
+      "Operation Management Chapter 8 - Hau Lee's Supply Chain Uncertainty Framework",
+      "Operation Management Chapter 8 - The Bullwhip Effect",
+      "Operation Management Chapter 8 - Variability of Orders in the Supply Chain",
+      "Operation Management Chapter 8 - Major Causes of the Bullwhip Effect",
+      "Operation Management Chapter 8 - CP8 Case Study Supply Chain Management ZARA"
+    ];
+
+    let toastTimer;
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2200);
+    }
+
+    async function copyTitle(index) {
+      const title = titles[index];
+
+      try {
+        await navigator.clipboard.writeText(title);
+        showToast("✓ Title copied successfully!");
+      } catch (error) {
+        const field = document.createElement("textarea");
+        field.value = title;
+        field.style.position = "fixed";
+        field.style.opacity = "0";
+        document.body.appendChild(field);
+        field.select();
+
+        const success = document.execCommand("copy");
+        field.remove();
+
+        showToast(success
+          ? "✓ Title copied successfully!"
+          : "Please select and copy the title manually.");
+      }
+    }
+
+    function searchYouTube(index) {
+      const query = encodeURIComponent(titles[index]);
+      const url = "https://www.youtube.com/results?search_query=" + query;
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  </script>
+
+</body>
+</html>
