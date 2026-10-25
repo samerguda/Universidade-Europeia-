@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applied Entrepreneurship and Innovation</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0 0 10px 0;
+            font-size: 2em;
+        }
+
+        .subtitle {
+            color: var(--accent-color);
+            font-size: 1.4em;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .item-card {
+            background-color: #f1f5f9;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: var(--primary-color);
+            border-right: 4px solid var(--accent-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background-color: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Applied Entrepreneurship and Innovation</h1>
+            <div class="subtitle">Chapter 5 : Business Plan</div>
+        </header>
+
+        <main>
+            <div class="items-grid">
+                <div class="item-card">DKPT PMS</div>
+                <div class="item-card">CCT RAS</div>
+                <div class="item-card">RAM SF</div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
