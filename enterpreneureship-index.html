@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وحدات المساق - ريادة الأعمال</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* الشريط العلوي */
+        .header {
+            background-color: #1a3c6c;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .header-title h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .header-title p {
+            margin: 5px 0 0 0;
+            font-size: 12px;
+            opacity: 0.8;
+            direction: ltr; /* لضمان ظهور الإنجليزية بشكل صحيح */
+        }
+
+        .back-btn {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* الحاوية الرئيسية */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            min-height: 100vh;
+        }
+
+        /* عناوين الفصول */
+        .section-header {
+            background-color: #eef2f5;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-header i {
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* عناصر الملفات */
+        .file-item {
+            display: flex;
+            align-items: center;
+            padding: 18px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.2s;
+        }
+
+        .file-item:hover {
+            background-color: #fafafa;
+        }
+
+        .file-icon {
+            color: #4a6fa5;
+            font-size: 20px;
+            margin-left: 15px; /* مسافة من اليمين لأن الاتجاه RTL */
+            transform: rotate(45deg); /* تدوير أيقونة المشبك لتبدو كمرفق */
+        }
+
+        .file-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .file-title {
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: #222;
+        }
+
+        .file-subtitle {
+            font-size: 13px;
+            color: #666;
+            margin-top: 4px;
+            direction: ltr;
+            text-align: right;
+        }
+
+        /* الشريط السفلي */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 600px;
+            background-color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            border-top: 1px solid #ddd;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #888;
+            font-size: 11px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .nav-item i {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .nav-item.active {
+            color: #d9534f; /* لون أحمر للشريط النشط */
+        }
+        
+        /* مسافة إضافية في الأسفل حتى لا يغطي الشريط المحتوى */
+        .content-padding {
+            padding-bottom: 70px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- الشريط العلوي -->
+        <div class="header">
+            <i class="fas fa-chevron-right back-btn"></i>
+            <div class="header-title">
+                <h1>الوحدات (Módulos)</h1>
+                <p>2026-M-G_MIM-Applied Entrepreneurship and Inn...</p>
+            </div>
+            <div style="width: 20px;"></div> <!-- لموازنة المسافات -->
+        </div>
+
+        <div class="content-padding">
+            <!-- قسم: FUC / Others -->
+            <div class="section-header">
+                <i class="fas fa-caret-up"></i> FUC / أخرى (Others)
+            </div>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">نموذج الدورة الوحدوية 2026-2027</span>
+                    <span class="file-subtitle">UE E-AE 2026-2027 unit course form_A3ES_vf.pdf</span>
+                </div>
+            </a>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">دليل العمل (CBL) 2026-2027</span>
+                    <span class="file-subtitle">UE E-AE 2026-2027 Work Guide CBL.pdf</span>
+                </div>
+            </a>
+
+            <!-- قسم: الفصل الأول -->
+            <div class="section-header">
+                <i class="fas fa-caret-up"></i> الفصل الأول (Chapter 1)
+            </div>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">شرائح الفصل الأول - إنجليزي</span>
+                    <span class="file-subtitle">UE AE 2026-2027 Slides Chap 1 English_VF-.pdf</span>
+                </div>
+            </a>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">مستند 1: ريادة الأعمال في العالم الذي نعيش فيه</span>
+                    <span class="file-subtitle">UE AE 2026-2027 DOC 1 The entrepreneurship in the world we live in.pdf</span>
+                </div>
+            </a>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">مستند 2: النظام الريادي الوطني (ف. بانها)</span>
+                    <span class="file-subtitle">UE 2026-2027 DOC 2 - F Banha - National Entrepreneurial System - Chap1.pdf</span>
+                </div>
+            </a>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">مستند 3: تقرير الشركات الناشئة البرتغال 2024</span>
+                    <span class="file-subtitle">UE 2026-2027 AE DOC 3 - Report Startup Portugal 2024 - Chap1.pdf</span>
+                </div>
+            </a>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">مستند 4: تقرير الشركات المتوسعة (Scaleup) 2023</span>
+                    <span class="file-subtitle">UE 2026-2027 DOC 4 - Scaleup Report 2023 - Chap1.pdf</span>
+                </div>
+            </a>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">نشاط: استكشاف المجموعة - الفصل الأول</span>
+                    <span class="file-subtitle">UE AE 2026-2027 Activity -Group discovery - Chap 1 English.docx</span>
+                </div>
+            </a>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">الفكرة التجارية - الفصل الأول</span>
+                    <span class="file-subtitle">UE AE 2026-20267- The Business Idea - Chap1 English.docx</span>
+                </div>
+            </a>
+
+            <!-- قسم: الفصل الثاني -->
+            <div class="section-header">
+                <i class="fas fa-caret-up"></i> الفصل الثاني (Chapter 2)
+            </div>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">شرائح الفصل الثاني - إنجليزي</span>
+                    <span class="file-subtitle">UE AE 2026-2027 Slides Chap 2 English-.pdf</span>
+                </div>
+            </a>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">مستند 5: قياس الأداء لدعم ريادة الأعمال</span>
+                    <span class="file-subtitle">UE 2026-2027 DOC 5 PT - Benchmarking Apoio Empreendedorismo - Chap2.pdf</span>
+                </div>
+            </a>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">مستند 6: تقرير الدول الناشئة في الاتحاد الأوروبي</span>
+                    <span class="file-subtitle">DOC 6 UE AE 2026-2027 - EU Start Up Nations report - Chap2.pdf</span>
+                </div>
+            </a>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">مستند 7: كيفية تحديد الفرص التجارية</span>
+                    <span class="file-subtitle">DOC 7 UE AE 2026-2027 - How to identify business oportunities - Chap2 English.pdf</span>
+                </div>
+            </a>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">مستند 8: دراسة حالة - شركة Barkyn</span>
+                    <span class="file-subtitle">DOC 8 UE AE 2026-2027- Case Study Barkyn - Chap2 - ENG.pdf</span>
+                </div>
+            </a>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">مستند 9: دراسة حالة - Chic by Choice</span>
+                    <span class="file-subtitle">DOC 9 UE AE 2026-2027 - Case study - Chic by Choice - Chap 2.pdf</span>
+                </div>
+            </a>
+
+            <!-- قسم: الفصل الثالث -->
+            <div class="section-header">
+                <i class="fas fa-caret-up"></i> الفصل الثالث (Chapter 3)
+            </div>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">شرائح الفصل الثالث</span>
+                    <span class="file-subtitle">UE 2026-2027 AE Slides Chapter 3.pdf</span>
+                </div>
+            </a>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">مثال على عرض تقديمي (Pitch deck)</span>
+                    <span class="file-subtitle">Pitch deck example - Chap3..pdf</span>
+                </div>
+            </a>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">مستند 10: مثال تقديم عرض (Pitch Deck)</span>
+                    <span class="file-subtitle">DOC 10 - Pitch Deck - Presentation Example Cap3.pdf</span>
+                </div>
+            </a>
+            <a href="#" class="file-item">
+                <i class="fas fa-paperclip file-icon"></i>
+                <div class="file-info">
+                    <span class="file-title">مستند 11: عروض تقديمية (Pitch Decks)</span>
+                    <span class="file-subtitle">DOC 11 - Pitch Decks - Cap3.pdf</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- شريط التنقل السفلي -->
+        <div class="bottom-nav">
+            <a href="#" class="nav-item active">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>لوحة القيادة</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="far fa-calendar-alt"></i>
+                <span>التقويم</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="far fa-clipboard"></i>
+                <span>المهام</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="far fa-bell"></i>
+                <span>الإشعارات</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="far fa-envelope"></i>
+                <span>صندوق الوارد</span>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
